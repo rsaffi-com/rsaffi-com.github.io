@@ -1,26 +1,31 @@
 Start building sites … 
 hugo v0.127.0-74e0f3bd63c51f3c7a0f07a7c779eec9e922957e+extended linux/amd64 BuildDate=2024-06-05T10:27:59Z VendorInfo=gohugoio
 
+INFO  Translation func for language pt not found, use default.
 INFO  static: removing all files from destination that don't exist in static dirs
-INFO  build:  step process substep collect files 0 files_total 0 pages_total 0 resources_total 0 duration 60.067µs
-INFO  build:  step process duration 142.972µs
-INFO  build:  step assemble duration 389.168µs
-WARN  found no layout file for "html" for kind "taxonomy": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-WARN  found no layout file for "html" for kind "home": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-INFO  build:  step render substep pages site en outputFormat html duration 1.617579ms
-INFO  build:  step render substep pages site en outputFormat rss duration 1.882142ms
-INFO  build:  step render pages 5 content 0 duration 3.643494ms
-INFO  build:  step postProcess duration 11.127µs
-INFO  build:  duration 4.471813ms
+INFO  static: syncing static files to / duration 22.814703ms
+INFO  build:  step process substep collect files 13 files_total 13 pages_total 4 resources_total 9 duration 1.484112ms
+INFO  build:  step process duration 3.897626ms
+INFO  build:  step assemble duration 2.805067ms
+WARN  deprecated: .Site.IsServer was deprecated in Hugo v0.120.0 and will be removed in a future release. Use hugo.IsServer instead.
+INFO  build:  step render substep pages site en outputFormat html duration 593.107754ms
+INFO  build:  step render substep pages site en outputFormat json duration 1.707552ms
+INFO  build:  step render substep pages site en outputFormat rss duration 6.513135ms
+INFO  build:  step render substep pages site pt outputFormat html duration 39.98044ms
+INFO  build:  step render substep pages site pt outputFormat json duration 526.845µs
+INFO  build:  step render substep pages site pt outputFormat rss duration 3.279609ms
+INFO  build:  step render pages 74 content 37 duration 646.698863ms
+INFO  build:  step postProcess duration 24.995µs
+INFO  build:  duration 653.732455ms
 
-                   | EN  
--------------------+-----
-  Pages            |  5  
-  Paginator pages  |  0  
-  Non-page files   |  0  
-  Static files     |  0  
-  Processed images |  0  
-  Aliases          |  0  
-  Cleaned          |  0  
+                   | EN | PT  
+-------------------+----+-----
+  Pages            | 61 | 13  
+  Paginator pages  |  0 |  0  
+  Non-page files   |  9 |  0  
+  Static files     | 53 | 53  
+  Processed images |  0 |  0  
+  Aliases          | 23 |  1  
+  Cleaned          |  2 |  2  
 
-Total in 17 ms
+Total in 716 ms
