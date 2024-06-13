@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>English on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/categories/english/</link>
+    <description>Recent content in English on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Feb 2023 22:35:28 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/categories/english/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pão de Queijo/Cheese Bread “a la Ricardo”</title>
+      <link>https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/</link>
+      <pubDate>Tue, 07 Feb 2023 22:35:28 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/</guid>
+      <description>&lt;h3 id=&#34;-introdução---introduction&#34;&gt;&lt;strong&gt;🇧🇷&lt;/strong&gt; Introdução / &lt;strong&gt;🇺🇸&lt;/strong&gt; Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;🇧🇷&lt;/strong&gt; Muitas pessoas gostam do Pão de Queijo que eu faço e me pedem a receita, então resolvi escrever este post para facilitar! Como moro na Alemanha e recebo pedidos pela receita de Brasileiros e não-Brasileiros, resolvi escrever tudo em mais de uma língua a fim de maximizar o número de pessoas que podem entendê-la!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Create a Windows 10 bootable flashdrive using GRUB</title>
+      <link>https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/</link>
+      <pubDate>Sat, 29 Sep 2018 14:34:02 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/</guid>
+      <description>&lt;p&gt;2022-10-17 update: Just use &lt;a href=&#34;https://www.ventoy.net/en/index.html&#34;&gt;Ventoy&lt;/a&gt;! 😉&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;deprecated&#34;&gt;DEPRECATED:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;del&gt;If you use Linux and need to create a bootable flashdrive with a Windows 10 installer, this tutorial is for you.&lt;/del&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;del&gt;This method doesn’t require any third-party software to be installed (like &lt;code&gt;winusb&lt;/code&gt; or &lt;code&gt;unetbootin&lt;/code&gt;).&lt;/del&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb</title>
+      <link>https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/</link>
+      <pubDate>Sat, 12 Aug 2017 21:26:22 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/</guid>
+      <description>&lt;p&gt;So it’s 2017 and I can’t believe I had to get my hands this dirty to put this to work, but it finally works: I have high resolution text console while using the proprietary &lt;code&gt;nvidia-driver&lt;/code&gt;! Don’t get me wrong: the steps are easy, but the mere fact I had to do this is what annoys me. Why don’t the proprietary &lt;code&gt;nvidia-drivers&lt;/code&gt; deliver a beautiful framebuffer console out-of-the-box like &lt;code&gt;nouveau&lt;/code&gt; does? Anyway…&lt;/p&gt;&#xA;&lt;p&gt;If you got to this post, chances are you have done your fair share of searches, tried different suggestions from many different Forums and/or Stack Overflow answers but is still strugling. Also, if you know what this post is related to, chances are you actually need/want a framebuffer console, so I assume you can get around the console and editing system files. That being said, I’ll keep this tutorial very straightforward and not get into many details explaining how to do basic stuff.&lt;/p&gt;&#xA;&lt;p&gt;Well let’s get to it, then!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

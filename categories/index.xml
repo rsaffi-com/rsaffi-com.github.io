@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/categories/</link>
+    <description>Recent content in Categories on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Feb 2023 22:35:28 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>English</title>
+      <link>https://blog.rsaffi.com/categories/english/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/categories/english/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Portuguese</title>
+      <link>https://blog.rsaffi.com/categories/portuguese/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/categories/portuguese/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Howto</title>
+      <link>https://blog.rsaffi.com/categories/howto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/categories/howto/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

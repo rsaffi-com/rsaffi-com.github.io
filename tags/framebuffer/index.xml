@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Framebuffer on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/tags/framebuffer/</link>
+    <description>Recent content in Framebuffer on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Aug 2017 21:26:22 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/tags/framebuffer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb</title>
+      <link>https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/</link>
+      <pubDate>Sat, 12 Aug 2017 21:26:22 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/</guid>
+      <description>&lt;p&gt;So it’s 2017 and I can’t believe I had to get my hands this dirty to put this to work, but it finally works: I have high resolution text console while using the proprietary &lt;code&gt;nvidia-driver&lt;/code&gt;! Don’t get me wrong: the steps are easy, but the mere fact I had to do this is what annoys me. Why don’t the proprietary &lt;code&gt;nvidia-drivers&lt;/code&gt; deliver a beautiful framebuffer console out-of-the-box like &lt;code&gt;nouveau&lt;/code&gt; does? Anyway…&lt;/p&gt;&#xA;&lt;p&gt;If you got to this post, chances are you have done your fair share of searches, tried different suggestions from many different Forums and/or Stack Overflow answers but is still strugling. Also, if you know what this post is related to, chances are you actually need/want a framebuffer console, so I assume you can get around the console and editing system files. That being said, I’ll keep this tutorial very straightforward and not get into many details explaining how to do basic stuff.&lt;/p&gt;&#xA;&lt;p&gt;Well let’s get to it, then!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

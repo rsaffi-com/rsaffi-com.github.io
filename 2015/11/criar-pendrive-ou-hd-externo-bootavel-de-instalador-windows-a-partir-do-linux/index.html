@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="https://blog.rsaffi.com/">
+    <meta name="author" content="Ricardo Saffi Marques">
+    <meta name="description" content="Ricardo Saffi Marques&#39; collection of thoughts">
+    <meta name="keywords" content="blog,personal,responsive,pages,posts,multilingual,syntax highlighting">
+    <meta name="generator" content="Hugo 0.127.0">
+    <title>
+        
+           
+               Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux &vert; Bits and Nibbles
+           
+        
+    </title>
+    <meta itemprop="name" content="Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux">
+    <meta itemprop="description" content="Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux - Ricardo Saffi Marques&#39; collection of thoughts">
+    <meta property="og:site_name" content="Bits and Nibbles">
+
+    <meta property="og:url" content="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">
+  <meta property="og:site_name" content="Bits and Nibbles">
+  <meta property="og:title" content="Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux">
+  <meta property="og:description" content="Já passei por várias formas de fazer isso: winusb, unetbootin e outros.
+A forma mais consistente que vi até agora foi esta!
+UPDATE: escrevi um novo post (em inglês) com uma forma mais consistente de fazer isso. Acesse aqui!">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-11-02T14:11:55+00:00">
+    <meta property="article:modified_time" content="2015-11-02T14:11:55+00:00">
+
+
+    
+
+
+    
+
+    
+    <link rel="canonical" href="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">
+    
+
+    
+        
+
+    
+    <script src="https://blog.rsaffi.com/js/check-theme-prefer.min.ad7372d3b59ddf8b5ed1bb1ac4252eb33234f1c38130995cff1142b0555e94f7.js" integrity="sha256-rXNy07Wd34te0bsaxCUuszI08cOBMJlc/xFCsFVelPc=" crossorigin="anonymous"></script>
+
+
+    
+
+    
+
+
+
+    
+    <link id="theme-css" rel="stylesheet" href="https://blog.rsaffi.com/theme.min.4a7adaae74bbfed8a1bc02779a28cb26bed20f704048301344690c44af008313.css" integrity="sha256-SnrarnS7/tihvAJ3mijLJr7SD3BASDATRGkMRK8AgxM=" media="screen" crossorigin="anonymous">
+
+
+
+    
+
+
+
+    
+
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+    
+
+    
+    <nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+        </ul>
+
+        
+            <div id="search-box" class="search">
+                <i class="fas fa-search"></i>
+                <input id="search" type="text" placeholder="Search ...">
+            </div>
+        
+    </div>
+</nav>
+
+
+    
+    <header>
+
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    
+                    
+                        
+                    
+                    <img src="https://seccdn.libravatar.org/avatar/1bb96dd3256b994b9403d960da4dc67d?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title">
+                <a href="/">
+                    Bits and Nibbles
+                </a>
+            </h3>
+
+            
+        </div>
+        <div class="selectors">
+          
+          <div class="light-dark-mode">
+            <button id="light-dark-toggle" class="fa-solid fa-sun"></button>
+          </div>
+          
+          <div class="languages">
+            
+                
+                
+                  
+                
+
+                
+                    <a href="/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/" class="active">en</a>
+                
+            
+                
+                
+
+                
+                    <a href="/pt/">pt</a>
+                
+            
+            </div>
+        
+       </div>
+
+        
+            <div class="toggler">
+        
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+    </div>
+    </div>
+</header>
+
+
+    <div class="main container">
+        
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">
+    <i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">
+            Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux
+        </a>
+    </h1>
+
+    <div class="meta">
+        
+            
+                <span class="date moment">2015-11-02</span>
+            
+        
+
+        
+            
+                <span class="readingTime">3 min read</span>
+            
+        
+
+        
+            <span class="categories">
+                
+                    
+                    
+                        <a href="https://blog.rsaffi.com/categories/howto/">Howto</a>
+                    
+                
+                    
+                    
+                        <a href="https://blog.rsaffi.com/categories/portuguese/">Portuguese</a>
+                    
+                
+            </span>
+        
+
+        
+            <span class="author">
+                
+                
+                    <a href="https://blog.rsaffi.com/author/ricardo/">Ricardo</a>
+                
+            </span>
+        
+    </div>
+
+    
+        
+
+        <p>Já passei por várias formas de fazer isso: <em>winusb</em>, <em>unetbootin</em> e outros.<br>
+A forma mais consistente que vi até agora foi esta!</p>
+<p><strong>UPDATE:</strong> escrevi um novo post (em inglês) com uma forma mais consistente de fazer isso. <a href="http://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/"><strong>Acesse aqui</strong></a>!</p>
+<p><strong>1)</strong> Instalar GParted e GRUB:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install gparted grub-pc-bin p7zip-full ntfs-3g
+</span></span></code></pre></div><p><strong>2)</strong> Utilize o gparted (ou fdisk se preferir – eu prefiro!) para refazer a tabela de partições do pendrive ou HD externo a ser utilizado. Zere a tabela de partições, criando uma nova do tipo MSDOS, adicione então uma única partição e formate-a como NTFS. Lembre-se de habilitar a flag de “bootable”.</p>
+<p><strong>3)</strong> Tome nota do UUID da partição que acabou de criar. É possível pegar essa informação pelo gparted. Outra forma é, via terminal, utilizar o comando “blkid”.<br>
+Digamos que nosso pendrive, neste tutorial, é o dispositivo /dev/sdc. Assim, a partição que nos interessa (que criamos no passo anterior) é a /dev/sdc1.<br>
+EXEMPLO:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo blkid /dev/sdc1
+</span></span><span style="display:flex;"><span>/dev/sdc1: LABEL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pendrive&#34;</span> UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ntfs&#34;</span> PARTUUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fe10b2bb-01&#34;</span>
+</span></span></code></pre></div><p>É esse valor do UUID que você deve anotar (copie/cole num bloco de notas).</p>
+<p><strong>4)</strong> Copie todos os arquivos da ISO do instalador Windows para o pendrive. Vou dar uma ajuda para os mais leigos, de como fazer isso no Linux. Novamente, vamos assumir que a partição NTFS de nosso pendrive é /dev/sdc1 e que a nossa ISO do Windows está em /home/ricardo/Downloads/win8.iso.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo mkdir -p /mnt/<span style="color:#f92672">{</span>pendrive,iso<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>$ sudo mount /dev/sdc1 /mnt/pendrive
+</span></span><span style="display:flex;"><span>$ sudo mount -o loop /home/ricardo/Downloads/win8.iso /mnt/iso
+</span></span><span style="display:flex;"><span>$ sudo rsync -av /mnt/iso/ /mnt/pendrive/    <span style="color:#75715e"># atenção às &#34;/&#34; após cada pasta!</span>
+</span></span><span style="display:flex;"><span>$ sync
+</span></span><span style="display:flex;"><span>$ sudo umount /mnt/iso
+</span></span></code></pre></div><p><strong>5)</strong> Acesse a pasta /mnt/pendrive e veja se existe uma pasta “boot”. Se ela estiver toda em maiúsculas (isto é: “BOOT”), renomeie-a para minúscula.</p>
+<p><strong>6)</strong> Crie um arquivo de configuração para o GRUB que está instalado no pendrive. Para isso, neste nosso exemplo, crie o seguinte arquivo: /mnt/pendrive/boot/grub.cfg.</p>
+<p>É agora que você utilizará aquele UUID que havia salvo no começo deste tutorial. Coloque o seguinte conteúdo no arquivo /mnt/pendrive/boot/grub.cfg:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>insmod ntfs
+</span></span><span style="display:flex;"><span>insmod search_fs_uuid
+</span></span><span style="display:flex;"><span>insmod chain
+</span></span><span style="display:flex;"><span>search --no-floppy --fs-uuid 689629814A3C53AA --set root
+</span></span><span style="display:flex;"><span>chainloader +1
+</span></span><span style="display:flex;"><span>boot
+</span></span></code></pre></div><p><strong>7)</strong> Instale o GRUB na MBR do dispositivo USB (no caso, seu pendrive ou HD externo). Seguindo nosso exemplo aqui, temos a partição NTFS em /dev/sdc1, consequentemente o dispositivo é /dev/sdc. Considerarei também que o pendrive continua montado no diretório /mnt/pendrive que eu havia criado antes.</p>
+<p>Para instalar o GRUB na MBR dele, fazemos o seguinte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo grub-install --target<span style="color:#f92672">=</span>i386-pc --boot-directory<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/mnt/pendrive/boot&#34;</span> /dev/sdc
+</span></span></code></pre></div><p><strong>8)</strong> Pronto. Salve esse arquivo e desmonte e remova o pendrive:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo umount /dev/sdc1
+</span></span><span style="display:flex;"><span>$ sudo eject /dev/sdc
+</span></span></code></pre></div><p>Já poderá utilizar esse pendrive ou HD externo para bootar o instalador do Windows em um PC.</p>
+<p>Utilizei esse procedimento com sucesso tanto para Windows 7 como Windows 8.1.</p>
+<p>Happy hacking!</p>
+    
+</div>
+
+    
+<div class="footer no-tags">
+
+
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="comments-container">
+            
+            
+
+            
+
+            
+
+        </div>
+    
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/">Pão de Queijo/Cheese Bread “a la Ricardo”</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/">Create a Windows 10 bootable flashdrive using GRUB</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            
+            <a href="https://blog.rsaffi.com/categories/"><strong>Categories</strong></a>
+            
+
+            <ul>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/english/">English (3)</a>
+                
+                </li>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/howto/">Howto (2)</a>
+                
+                </li>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/portuguese/">Portuguese (2)</a>
+                
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+                
+                <a href="https://www.rsaffi.com" target="_blank" rel="me"><em class="fa-solid fa-address-card"></em></a>
+                
+                <a href="https://github.com/rsaffi" target="_blank" rel=""><em class="fab fa-github"></em></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                    <strong>Other languages</strong>
+                    
+                        
+                        
+                            
+                        
+
+                        
+                            <a href="/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/" class="active">en</a>
+                        
+                    
+                        
+                        
+
+                        
+                            <a href="/pt/">pt</a>
+                        
+                    
+                </div>
+            
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://www.rsaffi.com" target="_blank">
+                &copy;
+                
+                2024
+                
+                by Ricardo Saffi Marques
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme"
+                target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+  
+
+
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+    
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+
+
+    
+    <script src="https://blog.rsaffi.com/theme.min.038faee11c569eb747e4eb190ff6adca76e2be35dfb046f00c01bec125534fb3.js" integrity="sha256-A4&#43;u4RxWnrdH5OsZD/atynbivjXfsEbwDAG&#43;wSVTT7M=" crossorigin="anonymous"></script>
+
+
+
+    
+
+
+
+    
+        <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="45CEN6X6AT">
+  <input type="hidden" id="algolia-search-apiKey" value="16030625f1a4d0dd3b8aefd794fd4cf1">
+  <input type="hidden" id="algolia-search-indexName" value="bilberry-hugo-theme">
+  <input type="hidden" id="algolia-search-noSearchResults" value="Nothing found.">
+
+  
+</div>
+
+    
+
+    
+</body>
+
+</html>

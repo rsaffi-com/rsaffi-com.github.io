@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ricardo Saffi Marques on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/author/ricardo-saffi-marques/</link>
+    <description>Recent content in Ricardo Saffi Marques on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 29 Sep 2018 14:34:02 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/author/ricardo-saffi-marques/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create a Windows 10 bootable flashdrive using GRUB</title>
+      <link>https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/</link>
+      <pubDate>Sat, 29 Sep 2018 14:34:02 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/</guid>
+      <description>&lt;p&gt;2022-10-17 update: Just use &lt;a href=&#34;https://www.ventoy.net/en/index.html&#34;&gt;Ventoy&lt;/a&gt;! 😉&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;deprecated&#34;&gt;DEPRECATED:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;del&gt;If you use Linux and need to create a bootable flashdrive with a Windows 10 installer, this tutorial is for you.&lt;/del&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;del&gt;This method doesn’t require any third-party software to be installed (like &lt;code&gt;winusb&lt;/code&gt; or &lt;code&gt;unetbootin&lt;/code&gt;).&lt;/del&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portuguese on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/categories/portuguese/</link>
+    <description>Recent content in Portuguese on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Feb 2023 22:35:28 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/categories/portuguese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pão de Queijo/Cheese Bread “a la Ricardo”</title>
+      <link>https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/</link>
+      <pubDate>Tue, 07 Feb 2023 22:35:28 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/</guid>
+      <description>&lt;h3 id=&#34;-introdução---introduction&#34;&gt;&lt;strong&gt;🇧🇷&lt;/strong&gt; Introdução / &lt;strong&gt;🇺🇸&lt;/strong&gt; Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;🇧🇷&lt;/strong&gt; Muitas pessoas gostam do Pão de Queijo que eu faço e me pedem a receita, então resolvi escrever este post para facilitar! Como moro na Alemanha e recebo pedidos pela receita de Brasileiros e não-Brasileiros, resolvi escrever tudo em mais de uma língua a fim de maximizar o número de pessoas que podem entendê-la!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux</title>
+      <link>https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/</link>
+      <pubDate>Mon, 02 Nov 2015 14:11:55 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/</guid>
+      <description>&lt;p&gt;Já passei por várias formas de fazer isso: &lt;em&gt;winusb&lt;/em&gt;, &lt;em&gt;unetbootin&lt;/em&gt; e outros.&lt;br&gt;&#xA;A forma mais consistente que vi até agora foi esta!&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; escrevi um novo post (em inglês) com uma forma mais consistente de fazer isso. &lt;a href=&#34;http://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/&#34;&gt;&lt;strong&gt;Acesse aqui&lt;/strong&gt;&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

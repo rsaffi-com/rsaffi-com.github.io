@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="https://blog.rsaffi.com/">
+    <meta name="author" content="Ricardo Saffi Marques">
+    <meta name="description" content="Ricardo Saffi Marques&#39; collection of thoughts">
+    <meta name="keywords" content="blog,personal,responsive,pages,posts,multilingual,syntax highlighting">
+    <meta name="generator" content="Hugo 0.127.0">
+    <title>
+        
+           
+               Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb &vert; Bits and Nibbles
+           
+        
+    </title>
+    <meta itemprop="name" content="Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb">
+    <meta itemprop="description" content="Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb - Ricardo Saffi Marques&#39; collection of thoughts">
+    <meta property="og:site_name" content="Bits and Nibbles">
+
+    <meta property="og:url" content="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">
+  <meta property="og:site_name" content="Bits and Nibbles">
+  <meta property="og:title" content="Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb">
+  <meta property="og:description" content="So it’s 2017 and I can’t believe I had to get my hands this dirty to put this to work, but it finally works: I have high resolution text console while using the proprietary nvidia-driver! Don’t get me wrong: the steps are easy, but the mere fact I had to do this is what annoys me. Why don’t the proprietary nvidia-drivers deliver a beautiful framebuffer console out-of-the-box like nouveau does? Anyway…
+If you got to this post, chances are you have done your fair share of searches, tried different suggestions from many different Forums and/or Stack Overflow answers but is still strugling. Also, if you know what this post is related to, chances are you actually need/want a framebuffer console, so I assume you can get around the console and editing system files. That being said, I’ll keep this tutorial very straightforward and not get into many details explaining how to do basic stuff.
+Well let’s get to it, then!">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-08-12T21:26:22+00:00">
+    <meta property="article:modified_time" content="2017-08-12T21:26:22+00:00">
+    <meta property="article:tag" content="Console">
+    <meta property="article:tag" content="Debian">
+    <meta property="article:tag" content="Framebuffer">
+    <meta property="article:tag" content="Grub">
+    <meta property="article:tag" content="Gtx 1080">
+    <meta property="article:tag" content="Initramfs">
+
+
+    
+
+
+    
+
+    
+    <link rel="canonical" href="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">
+    
+
+    
+        
+
+    
+    <script src="https://blog.rsaffi.com/js/check-theme-prefer.min.ad7372d3b59ddf8b5ed1bb1ac4252eb33234f1c38130995cff1142b0555e94f7.js" integrity="sha256-rXNy07Wd34te0bsaxCUuszI08cOBMJlc/xFCsFVelPc=" crossorigin="anonymous"></script>
+
+
+    
+
+    
+
+
+
+    
+    <link id="theme-css" rel="stylesheet" href="https://blog.rsaffi.com/theme.min.4a7adaae74bbfed8a1bc02779a28cb26bed20f704048301344690c44af008313.css" integrity="sha256-SnrarnS7/tihvAJ3mijLJr7SD3BASDATRGkMRK8AgxM=" media="screen" crossorigin="anonymous">
+
+
+
+    
+
+
+
+    
+
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+    
+
+    
+    <nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+        </ul>
+
+        
+            <div id="search-box" class="search">
+                <i class="fas fa-search"></i>
+                <input id="search" type="text" placeholder="Search ...">
+            </div>
+        
+    </div>
+</nav>
+
+
+    
+    <header>
+
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    
+                    
+                        
+                    
+                    <img src="https://seccdn.libravatar.org/avatar/1bb96dd3256b994b9403d960da4dc67d?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title">
+                <a href="/">
+                    Bits and Nibbles
+                </a>
+            </h3>
+
+            
+        </div>
+        <div class="selectors">
+          
+          <div class="light-dark-mode">
+            <button id="light-dark-toggle" class="fa-solid fa-sun"></button>
+          </div>
+          
+          <div class="languages">
+            
+                
+                
+                  
+                
+
+                
+                    <a href="/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/" class="active">en</a>
+                
+            
+                
+                
+
+                
+                    <a href="/pt/">pt</a>
+                
+            
+            </div>
+        
+       </div>
+
+        
+            <div class="toggler">
+        
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+    </div>
+    </div>
+</header>
+
+
+    <div class="main container">
+        
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">
+    <i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">
+            Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb
+        </a>
+    </h1>
+
+    <div class="meta">
+        
+            
+                <span class="date moment">2017-08-12</span>
+            
+        
+
+        
+            
+                <span class="readingTime">6 min read</span>
+            
+        
+
+        
+            <span class="categories">
+                
+                    
+                    
+                        <a href="https://blog.rsaffi.com/categories/english/">English</a>
+                    
+                
+                    
+                    
+                        <a href="https://blog.rsaffi.com/categories/howto/">Howto</a>
+                    
+                
+            </span>
+        
+
+        
+            <span class="author">
+                
+                
+                    <a href="https://blog.rsaffi.com/author/ricardo/">Ricardo</a>
+                
+            </span>
+        
+    </div>
+
+    
+        
+
+        <p>So it’s 2017 and I can’t believe I had to get my hands this dirty to put this to work, but it finally works: I have high resolution text console while using the proprietary <code>nvidia-driver</code>! Don’t get me wrong: the steps are easy, but the mere fact I had to do this is what annoys me. Why don’t the proprietary <code>nvidia-drivers</code> deliver a beautiful framebuffer console out-of-the-box like <code>nouveau</code> does? Anyway…</p>
+<p>If you got to this post, chances are you have done your fair share of searches, tried different suggestions from many different Forums and/or Stack Overflow answers but is still strugling. Also, if you know what this post is related to, chances are you actually need/want a framebuffer console, so I assume you can get around the console and editing system files. That being said, I’ll keep this tutorial very straightforward and not get into many details explaining how to do basic stuff.</p>
+<p>Well let’s get to it, then!</p>
+<blockquote>
+<p><strong>NOTE:</strong></p>
+<p>I usually do these things on a root console, so you won’t see me use <code>sudo</code> on my commands. If you don’t feel comfortable doing that, just remember to put <code>sudo</code> before every command you see here.</p>
+<p>Commands have dark background and begin with a <code>#</code> indicating that I’m on a root shell. Anything else is either the output of a command or the content of a file and have white background.</p>
+</blockquote>
+<p>You’ll need two packages: <code>v86d</code> and <code>hwinfo</code>. Since this tutorial is for Debian:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># apt update</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># apt install v86d hwinfo -y</span>
+</span></span></code></pre></div><p>After that, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># hwinfo --framebuffer</span>
+</span></span></code></pre></div><p>The output in my case was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e"># hwinfo --framebuffer</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>02: None 00.0: <span style="color:#ae81ff">11001</span> VESA Framebuffer
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#f92672">[</span>Created at bios.459<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Unique ID: rdCR.XCOohx2LF9A
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Hardware Class: framebuffer
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Model: <span style="color:#e6db74">&#34;NVIDIA GP104 Board&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Vendor: <span style="color:#e6db74">&#34;NVIDIA Corporation&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Device: <span style="color:#e6db74">&#34;GP104 Board&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>SubVendor: <span style="color:#e6db74">&#34;NVIDIA&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>SubDevice:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Revision: <span style="color:#e6db74">&#34;Chip Rev&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Memory Size: <span style="color:#ae81ff">16</span> MB
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>Memory Range: 0xd1000000-0xd1ffffff <span style="color:#f92672">(</span>rw<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>Mode 0x0301: 640x480 <span style="color:#f92672">(</span>+640<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>Mode 0x0303: 800x600 <span style="color:#f92672">(</span>+800<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>Mode 0x0305: 1024x768 <span style="color:#f92672">(</span>+1024<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>Mode 0x0307: 1280x1024 <span style="color:#f92672">(</span>+1280<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>Mode 0x0311: 640x480 <span style="color:#f92672">(</span>+1280<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>Mode 0x0312: 640x480 <span style="color:#f92672">(</span>+2560<span style="color:#f92672">)</span>, <span style="color:#ae81ff">24</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>Mode 0x0314: 800x600 <span style="color:#f92672">(</span>+1600<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>Mode 0x0315: 800x600 <span style="color:#f92672">(</span>+3200<span style="color:#f92672">)</span>, <span style="color:#ae81ff">24</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>Mode 0x0317: 1024x768 <span style="color:#f92672">(</span>+2048<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>Mode 0x0318: 1024x768 <span style="color:#f92672">(</span>+4096<span style="color:#f92672">)</span>, <span style="color:#ae81ff">24</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>Mode 0x031a: 1280x1024 <span style="color:#f92672">(</span>+2560<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>Mode 0x031b: 1280x1024 <span style="color:#f92672">(</span>+5120<span style="color:#f92672">)</span>, <span style="color:#ae81ff">24</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>Mode 0x0345: 1600x1200 <span style="color:#f92672">(</span>+1600<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>Mode 0x0346: 1600x1200 <span style="color:#f92672">(</span>+3200<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>Mode 0x034a: 1600x1200 <span style="color:#f92672">(</span>+6400<span style="color:#f92672">)</span>, <span style="color:#ae81ff">24</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>Mode 0x034b: 3840x2160 <span style="color:#f92672">(</span>+3840<span style="color:#f92672">)</span>, <span style="color:#ae81ff">8</span> bits
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>Mode 0x034c: 3840x2160 <span style="color:#f92672">(</span>+7680<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> bits
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>Config Status: cfg<span style="color:#f92672">=</span>new, avail<span style="color:#f92672">=</span>yes, need<span style="color:#f92672">=</span>no, active<span style="color:#f92672">=</span>unknown
+</span></span></code></pre></div><p>Take note of the resolution and color depth you want for your console. Even though my screen is <code>3840x2160</code> (4K) I went with a combination of <code>1600x1200-16</code> for GRUB (line 27) and <code>3840x2160-16</code> for the console itself (line 30). For the console I applied a bigger font so I could actually go with the native resolution for my screen. More on this later, keep reading!</p>
+<p>Next step is to create a new file and edit two existing ones.</p>
+<p>First of all, create the file <code>/etc/initramfs-tools/conf.d/splash</code> with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FRAMEBUFFER=y
+</span></span></code></pre></div><p>Next, edit <code>/etc/initramfs-tools/modules</code> and append this, but with the resolution you chose for your console. In my case:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#75715e"># List of modules that you want to include in your initramfs.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># They will be loaded at boot time in the order below.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Syntax:  module_name [args ...]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You must run update-initramfs(8) to effect this change.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># raid1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sd_mod</span>
+</span></span><span style="display:flex;"><span>uvesafb mode_option<span style="color:#f92672">=</span><span style="color:#ae81ff">3840</span>x2160<span style="color:#f92672">-</span><span style="color:#ae81ff">16</span> mtrr<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> scroll<span style="color:#f92672">=</span>ywrap
+</span></span></code></pre></div><p>Now let’s set the configuration on the GRUB file both for the Kernel and for GRUB itself. Edit the file <code>/etc/default/grub</code> and look for the highlighted lines below. Input the info as you see, respecting the resolution you chose for GRUB and the one for the Linux Console.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e"># If you change this file, run &#39;update-grub&#39; afterwards to update</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"># /boot/grub/grub.cfg.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#75715e"># For full documentation of the options in this file, see:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#75715e">#   info -f grub -n &#39;Simple configuration&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>GRUB_DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>GRUB_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>GRUB_DISTRIBUTOR<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>lsb_release -i -s 2&amp;gt; /dev/null <span style="color:#f92672">||</span> echo Debian<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;quiet&#34;</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video=uvesafb:mode_option=3840x2160-16,mtrr=3,scroll=ywrap&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>GRUB_BACKGROUND<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/share/wallpapers/asus_rog.png&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#75715e"># Uncomment to enable BadRAM filtering, modify to suit your needs</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#75715e"># This works with Linux (no patch required) and with any kernel that obtains</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#75715e"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#75715e">#GRUB_BADRAM=&#34;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#75715e"># Uncomment to disable graphical terminal (grub-pc only)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#75715e">#GRUB_TERMINAL=console</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#75715e"># The resolution used on graphical terminal</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#75715e"># note that you can use only modes which your graphic card supports via VBE</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#75715e"># you can see them in real GRUB with the command `vbeinfo&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#75715e"># GRUB_GFXMODE=3840x2160x16</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>GRUB_GFXMODE<span style="color:#f92672">=</span>1600x1200x16
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>GRUB_GFXPAYLOAD_LINUX<span style="color:#f92672">=</span>3840x2160x16
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#75715e"># Uncomment if you don&#39;t want GRUB to pass &#34;root=UUID=xxx&#34; parameter to Linux</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#75715e">#GRUB_DISABLE_LINUX_UUID=true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#75715e"># Uncomment to disable generation of recovery mode menu entries</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#75715e">#GRUB_DISABLE_RECOVERY=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#75715e"># Uncomment to get a beep at grub start</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="color:#75715e">#GRUB_INIT_TUNE=&#34;480 440 1&#34;</span>
+</span></span></code></pre></div><p><em>Line 10</em> is for the Kernel, instructing it to use <code>uvesafb</code> and giving it the same parameters we put on the <code>initramfs</code> file before.</p>
+<p><em>Line 25</em> is the resolution for the GRUB screen itself (where you choose the operating system to boot). As I previously said, I went with <code>1600x1200 (16 bits)</code> because it looks better for me (and for some reason 24 bits didn’t work here and it fallback to <code>VESA 640x480</code>). Choose whatever you want, based on what is available at your system.</p>
+<p><em>Line 26</em> is the resolution GRUB will apply when handing control over to Linux. Keep in mind that many tutorials about improving the console resolution will tell you to use <code>keep</code> on this parameter. That is for when you want to use the same resolution you put on <code>GRUB_GFXMODE</code>.</p>
+<p><strong>Attention:</strong> note that the syntax for <code>uvesafb</code> both on the <code>initramfs</code> file and on <em>line 10</em> above use a dash to separate the resolution and color depth, while on <code>GRUB_GFXMODE</code> and <code>GRUB_GFXPAYLOAD_LINUX</code> you must use <code>x</code>.</p>
+<p>Ok, now that we must instruct <code>initramfs</code> and GRUB that those files were modified. To do this, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># update-initramfs -k all -u</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># update-grub2</span>
+</span></span></code></pre></div><p>Output will be something like this, depending on your Kernel version, operating systems you have installed on your computer and other GRUB settings, so bare in mind your mileage may vary:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># update-initramfs -k all -u</span>
+</span></span><span style="display:flex;"><span>update-initramfs: Generating /boot/initrd.img-4.9.0-3-amd64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># update-grub2</span>
+</span></span><span style="display:flex;"><span>Generating grub configuration file ...
+</span></span><span style="display:flex;"><span>Found background: /usr/share/wallpapers/asus_rog.png
+</span></span><span style="display:flex;"><span>Found background image: /usr/share/wallpapers/asus_rog.png
+</span></span><span style="display:flex;"><span>Found linux image: /boot/vmlinuz-4.9.0-3-amd64
+</span></span><span style="display:flex;"><span>Found initrd image: /boot/initrd.img-4.9.0-3-amd64
+</span></span><span style="display:flex;"><span>Found Windows <span style="color:#ae81ff">10</span> on /dev/nvme0n1p1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>And that’s it. You can go on and reboot and see both GRUB and your text console with high resolution!</p>
+<p>But before I consider this tutorial finished, let me give you a tip if you also used a very high resolution on your console like I did and now you have tiny fonts there: to solve this, reconfigure your console and tell it to use a different, bigger font.</p>
+<p>To do that, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># dpkg-reconfigure console-setup</span>
+</span></span></code></pre></div><p>Given I am using <code>3840x2160</code> on the text console, here is my suggestion for answers to the questions you’ll be asked when running above command in case you use the same resolution:</p>
+<ul>
+<li>Encoding to use on the console: <code>UTF-8</code></li>
+<li>Character set to support: <code>Latin1 and Latin5</code>  (choose what fits your case best)</li>
+<li>Font for the console: <code>TerminusBold</code></li>
+<li>Font size: <code>12x24 (framebuffer only)</code></li>
+</ul>
+<p>Settings are applied immediately. Enjoy! 😎</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/console/">Console</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/debian/">Debian</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/framebuffer/">Framebuffer</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/grub/">Grub</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/gtx-1080/">Gtx 1080</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/initramfs/">Initramfs</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/kernel/">Kernel</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/linux/">Linux</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/nvidia/">Nvidia</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/nvidia-driver/">Nvidia-Driver</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/resolution/">Resolution</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/stretch/">Stretch</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/text-console/">Text Console</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/uvesafb/">Uvesafb</a>
+                    
+                
+                    
+                    
+                    <a href="https://blog.rsaffi.com/tags/vt/">Vt</a>
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="comments-container">
+            
+            
+
+            
+
+            
+
+        </div>
+    
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2023/02/pao-de-queijo-cheese-bread-a-la-ricardo/">Pão de Queijo/Cheese Bread “a la Ricardo”</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2018/09/create-a-windows-10-bootable-flashdrive-using-grub/">Create a Windows 10 bootable flashdrive using GRUB</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/">Debian 9.1 (stretch) with proprietary nvidia-driver and uvesafb</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.rsaffi.com/2015/11/criar-pendrive-ou-hd-externo-bootavel-de-instalador-windows-a-partir-do-linux/">Criar pendrive (ou HD externo) bootável de instalador Windows a partir do Linux</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            
+            <a href="https://blog.rsaffi.com/categories/"><strong>Categories</strong></a>
+            
+
+            <ul>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/english/">English (3)</a>
+                
+                </li>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/howto/">Howto (2)</a>
+                
+                </li>
+                
+                <li>
+                
+                    <a href="https://blog.rsaffi.com/categories/portuguese/">Portuguese (2)</a>
+                
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+                
+                <a href="https://www.rsaffi.com" target="_blank" rel="me"><em class="fa-solid fa-address-card"></em></a>
+                
+                <a href="https://github.com/rsaffi" target="_blank" rel=""><em class="fab fa-github"></em></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                    <strong>Other languages</strong>
+                    
+                        
+                        
+                            
+                        
+
+                        
+                            <a href="/2017/08/how-to-run-debian-9-1-stretch-with-proprietary-nvidia-driver-and-uvesafb/" class="active">en</a>
+                        
+                    
+                        
+                        
+
+                        
+                            <a href="/pt/">pt</a>
+                        
+                    
+                </div>
+            
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://www.rsaffi.com" target="_blank">
+                &copy;
+                
+                2024
+                
+                by Ricardo Saffi Marques
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme"
+                target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+  
+
+
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+    
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+
+
+    
+    <script src="https://blog.rsaffi.com/theme.min.038faee11c569eb747e4eb190ff6adca76e2be35dfb046f00c01bec125534fb3.js" integrity="sha256-A4&#43;u4RxWnrdH5OsZD/atynbivjXfsEbwDAG&#43;wSVTT7M=" crossorigin="anonymous"></script>
+
+
+
+    
+
+
+
+    
+        <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="45CEN6X6AT">
+  <input type="hidden" id="algolia-search-apiKey" value="16030625f1a4d0dd3b8aefd794fd4cf1">
+  <input type="hidden" id="algolia-search-indexName" value="bilberry-hugo-theme">
+  <input type="hidden" id="algolia-search-noSearchResults" value="Nothing found.">
+
+  
+</div>
+
+    
+
+    
+</body>
+
+</html>

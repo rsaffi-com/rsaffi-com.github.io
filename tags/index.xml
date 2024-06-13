@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Bits and Nibbles</title>
+    <link>https://blog.rsaffi.com/tags/</link>
+    <description>Recent content in Tags on Bits and Nibbles</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Aug 2017 21:26:22 +0000</lastBuildDate>
+    <atom:link href="https://blog.rsaffi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Console</title>
+      <link>https://blog.rsaffi.com/tags/console/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/console/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debian</title>
+      <link>https://blog.rsaffi.com/tags/debian/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/debian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Framebuffer</title>
+      <link>https://blog.rsaffi.com/tags/framebuffer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/framebuffer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grub</title>
+      <link>https://blog.rsaffi.com/tags/grub/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/grub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gtx 1080</title>
+      <link>https://blog.rsaffi.com/tags/gtx-1080/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/gtx-1080/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Initramfs</title>
+      <link>https://blog.rsaffi.com/tags/initramfs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/initramfs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kernel</title>
+      <link>https://blog.rsaffi.com/tags/kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/kernel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://blog.rsaffi.com/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nvidia</title>
+      <link>https://blog.rsaffi.com/tags/nvidia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nvidia-Driver</title>
+      <link>https://blog.rsaffi.com/tags/nvidia-driver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/nvidia-driver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resolution</title>
+      <link>https://blog.rsaffi.com/tags/resolution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/resolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stretch</title>
+      <link>https://blog.rsaffi.com/tags/stretch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/stretch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text Console</title>
+      <link>https://blog.rsaffi.com/tags/text-console/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/text-console/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uvesafb</title>
+      <link>https://blog.rsaffi.com/tags/uvesafb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/uvesafb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vt</title>
+      <link>https://blog.rsaffi.com/tags/vt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.rsaffi.com/tags/vt/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
