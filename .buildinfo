@@ -2,21 +2,21 @@ Start building sites …
 hugo v0.127.0-74e0f3bd63c51f3c7a0f07a7c779eec9e922957e+extended linux/amd64 BuildDate=2024-06-05T10:27:59Z VendorInfo=gohugoio
 
 INFO  Translation func for language pt not found, use default.
-INFO  build:  step process substep collect files 13 files_total 13 pages_total 4 resources_total 9 duration 2.096421ms
-INFO  build:  step process duration 9.679401ms
-INFO  build:  step assemble duration 6.941974ms
+INFO  build:  step process substep collect files 13 files_total 13 pages_total 4 resources_total 9 duration 2.067384ms
+INFO  build:  step process duration 4.666733ms
+INFO  build:  step assemble duration 8.481491ms
 WARN  deprecated: .Site.IsServer was deprecated in Hugo v0.120.0 and will be removed in a future release. Use hugo.IsServer instead.
-INFO  static: syncing static files to / duration 44.786643ms
+INFO  static: syncing static files to / duration 41.766068ms
 DEBUG Write redirect to main language en: https://blog.rsaffi.com/
-INFO  build:  step render substep pages site en outputFormat html duration 1.255263293s
-INFO  build:  step render substep pages site en outputFormat json duration 3.104759ms
-INFO  build:  step render substep pages site en outputFormat rss duration 10.778635ms
-INFO  build:  step render substep pages site pt outputFormat html duration 35.505573ms
-INFO  build:  step render substep pages site pt outputFormat json duration 587.095µs
-INFO  build:  step render substep pages site pt outputFormat rss duration 1.866663ms
-INFO  build:  step render pages 74 content 37 duration 1.307979848s
-INFO  build:  step postProcess duration 18.36µs
-INFO  build:  duration 1.324922638s
+INFO  build:  step render substep pages site en outputFormat html duration 1.324221821s
+INFO  build:  step render substep pages site en outputFormat json duration 2.125376ms
+INFO  build:  step render substep pages site en outputFormat rss duration 95.093806ms
+INFO  build:  step render substep pages site pt outputFormat html duration 42.861135ms
+INFO  build:  step render substep pages site pt outputFormat json duration 1.290535ms
+INFO  build:  step render substep pages site pt outputFormat rss duration 4.613487ms
+INFO  build:  step render pages 74 content 37 duration 1.471803417s
+INFO  build:  step postProcess duration 44.975µs
+INFO  build:  duration 1.48574372s
 
                    | EN | PT  
 -------------------+----+-----
@@ -28,4 +28,4 @@ INFO  build:  duration 1.324922638s
   Aliases          | 23 |  1  
   Cleaned          |  0 |  0  
 
-Total in 1356 ms
+Total in 1521 ms
