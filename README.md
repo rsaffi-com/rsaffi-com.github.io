@@ -1,4 +1,4 @@
-# [https://www.rsaffi.com](https://www.rsaffi.com)
+# [https://blog.rsaffi.com](https://blog.rsaffi.com)
 
 This repository holds the published files built from [Hugo](https://gohugo.io/) project hosted in a private repository.
 
