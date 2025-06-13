@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "theme.css",
-	"sourceRoot": "/home/ricardo/github.com/rsaffi-com/actions-runner/_work/blog/blog/project",
+	"sourceRoot": "/home/ricardo/github/rsaffi-com/actions-runner/_work/blog/blog/project",
 	"sources": [
 		"themes/bilberry-hugo-theme/v4/assets/sass/theme.scss",
 		"themes/bilberry-hugo-theme/v4/assets/sass/_vendor/normalize.scss",
